@@ -12,7 +12,6 @@ on:
   push:
     branches:
       - main
-      - master
 
 jobs:
   run-unit-tests:
@@ -43,15 +42,3 @@ jobs:
         with:
           name: backend-social-network
           path: backend-social-network-${{ github.sha }}.jar
-
-  fake-deploy:
-    runs-on: self-hosted
-    needs: run-unit-tests
-    steps:
-      - name: Get the artifact
-        uses: actions/download-artifact@master
-        with:
-          name: backend-social-network
-
-      - name: Fake deploy
-        run: ls backend-social-network-*.jar
