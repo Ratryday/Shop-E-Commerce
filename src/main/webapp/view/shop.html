@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <header class="header first-page__header">
+    <header class="header">
         <div class="container">
             <div class="header__content">
                 <a href="index.html" class="logo header__logo">
@@ -54,50 +54,41 @@
         </div>
     </header>
     <main class="main">
-        <section class="hero">
+        <section class="page-hero">
             <div class="container">
-                <div class="hero__content">
-                    <div class="hero__text-block">
-                        <h3 class="subtitle hero__subtitle">New Arrival</h3>
-                        <h1 class="title hero__title">Discover Our New Collection</h1>
-                        <p class="text hero__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
-                        <button class="btn hero__btn">Buy now</button>
+                <div class="page-hero__content">
+                    <h1 class="title  page-hero__title">Shop</h1>
+                    <div class="page-hero__path">
+                        <a href="index.html" class="page-hero__link">Home</a>
+                        <p class="page-hero__text">Shop</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="range">
-            <div class="container">
-                <div class="range__content">
-                    <h2 class="title section__title range__title">Browse The Range</h2>
-                    <p class="text range__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <ul class="range__list">
-                        <li class="range__item">
-                            <a href=""  class="range__img-block">
-                                <img src="./images/range-img-1.png" alt="">
-                            </a>
-                            <h3 class="range__title-item">Dining</h3>
-                        </li>
-                        <li class="range__item">
-                            <a href=""  class="range__img-block">
-                                <img src="./images/range-img-2.png" alt="">
-                            </a>
-                            <h3 class="range__title-item">Living</h3>
-                        </li>
-                        <li class="range__item">
-                            <a href=""  class="range__img-block">
-                                <img src="./images/range-img-3.png" alt="">
-                            </a>
-                            <h3 class="range__title-item">Bedroom</h3>
-                        </li>
-                    </ul>
+        <section class="shop-products">
+            <div class="shop-products__header">
+                <div class="container">
+                    <div class="shop-products__header-content">
+                        <div class="filter-show__block">
+                            <div class="filter__block">
+                                <button class="btn filter__btn">
+                                    <img src="./images/shop/filter-icon.svg" alt="">
+                                </button>
+                                <p class="filter__text">Filter</p>
+                            </div>
+                            <p class="show__text">Showing 1–16 of 32 results</p>
+                        </div>
+                        <form action="" method="get" class="form show__form">
+                            <label for="show" class="show__label">Show</label>
+                            <input type="text" name="show" id="" value="16" class="show__input">
+                            <label for="sort" class="sort__label">Sort by</label>
+                            <input type="text" name="sort" id="" value="Default" class="sort__input">
+                        </form>
+                    </div>
                 </div>
             </div>
-        </section>
-        <section class="products">
-            <div class="container">
-                <div class="products__content">
-                    <h2 class="title section__title products__title">Our Products</h2>
+            <div class="shop-products__content">
+                <div class="container">
                     <ul class="products__list">
                         <li class="products__item">
                                 <div class="products__img-block">
@@ -291,42 +282,249 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="products__item">
+                            <div class="products__img-block">
+                                <img src="./images/products-img-1.png" alt="">
+                            </div>
+                            <div class="products__text-block">
+                                <a href="" class="products__item-title">Syltherine</a>
+                                <p class="products__item-description">Stylish cafe chair</p>
+                                <p class="products__item-price">Rp 2.500.000</p>
+                            </div>
+                            <div class="products__item-hover">
+                                <button class="btn products__hover-btn">Add to cart</button>
+                                <ul class="products__hover-list">
+                                    <li class="products__hover-item">
+                                        <button class="hover__btn share__btn"><img src="./images/share-icon.svg" alt="">Share</button>
+                                    </li>
+                                    <li class="products__hover-item">
+                                        <button class="hover__btn compare__btn"><img src="./images/compare-icon.svg" alt="">Compare</button>
+                                    </li>
+                                    <li class="products__hover-item">
+                                        <button class="hover__btn like__btn"><img src="./images/heart-hover-icon.svg" alt="">Like</button>
+                                    </li>
+                                </ul>
+                            </div>
+                    </li>
+                    <li class="products__item">
+                        <div class="products__img-block">
+                            <img src="./images/products-img-2.png" alt="">
+                        </div>
+                        <div class="products__text-block">
+                            <a href="" class="products__item-title">Leviosa</a>
+                            <p class="products__item-description">Stylish cafe chair</p>
+                            <p class="products__item-price">Rp 2.500.000</p>
+                        </div>
+                        <div class="products__item-hover">
+                            <button class="btn products__hover-btn">Add to cart</button>
+                            <ul class="products__hover-list">
+                                <li class="products__hover-item">
+                                    <button class="hover__btn share__btn"><img src="./images/share-icon.svg" alt="">Share</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn compare__btn"><img src="./images/compare-icon.svg" alt="">Compare</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn like__btn"><img src="./images/heart-hover-icon.svg" alt="">Like</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="products__item">
+                        <div class="products__img-block">
+                            <img src="./images/products-img-3.png" alt="">
+                        </div>
+                        <div class="products__text-block">
+                            <a href="" class="products__item-title">Lolito</a>
+                            <p class="products__item-description">Luxury big sofa</p>
+                            <p class="products__item-price">Rp 7.000.000</p>
+                        </div>
+                        <div class="products__item-hover">
+                            <button class="btn products__hover-btn">Add to cart</button>
+                            <ul class="products__hover-list">
+                                <li class="products__hover-item">
+                                    <button class="hover__btn share__btn"><img src="./images/share-icon.svg" alt="">Share</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn compare__btn"><img src="./images/compare-icon.svg" alt="">Compare</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn like__btn"><img src="./images/heart-hover-icon.svg" alt="">Like</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="products__item">
+                        <div class="products__img-block">
+                            <img src="./images/products-img-4.png" alt="">
+                        </div>
+                        <div class="products__text-block">
+                            <a href="" class="products__item-title">Respira</a>
+                            <p class="products__item-description">Outdoor bar table and stool</p>
+                            <p class="products__item-price">Rp 500.000</p>
+                        </div>
+                        <div class="products__item-hover">
+                            <button class="btn products__hover-btn">Add to cart</button>
+                            <ul class="products__hover-list">
+                                <li class="products__hover-item">
+                                    <button class="hover__btn share__btn"><img src="./images/share-icon.svg" alt="">Share</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn compare__btn"><img src="./images/compare-icon.svg" alt="">Compare</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn like__btn"><img src="./images/heart-hover-icon.svg" alt="">Like</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="products__item">
+                        <div class="products__img-block">
+                            <img src="./images/products-img-5.png" alt="">
+                        </div>
+                        <div class="products__text-block">
+                            <a href="" class="products__item-title">Grifo</a>
+                            <p class="products__item-description">Night lamp</p>
+                            <p class="products__item-price">Rp 1.500.000</p>
+                        </div>
+                        <div class="products__item-hover">
+                            <button class="btn products__hover-btn">Add to cart</button>
+                            <ul class="products__hover-list">
+                                <li class="products__hover-item">
+                                    <button class="hover__btn share__btn"><img src="./images/share-icon.svg" alt="">Share</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn compare__btn"><img src="./images/compare-icon.svg" alt="">Compare</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn like__btn"><img src="./images/heart-hover-icon.svg" alt="">Like</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="products__item">
+                        <div class="products__img-block">
+                            <img src="./images/products-img-6.png" alt="">
+                        </div>
+                        <div class="products__text-block">
+                            <a href="" class="products__item-title">Muggo</a>
+                            <p class="products__item-description">Small mug</p>
+                            <p class="products__item-price">Rp 150.000</p>
+                        </div>
+                        <div class="products__item-hover">
+                            <button class="btn products__hover-btn">Add to cart</button>
+                            <ul class="products__hover-list">
+                                <li class="products__hover-item">
+                                    <button class="hover__btn share__btn"><img src="./images/share-icon.svg" alt="">Share</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn compare__btn"><img src="./images/compare-icon.svg" alt="">Compare</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn like__btn"><img src="./images/heart-hover-icon.svg" alt="">Like</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="products__item">
+                        <div class="products__img-block">
+                            <img src="./images/products-img-7.png" alt="">
+                        </div>
+                        <div class="products__text-block">
+                            <a href="" class="products__item-title">Pingky</a>
+                            <p class="products__item-description">Cute bed set</p>
+                            <p class="products__item-price">Rp 7.000.000</p>
+                        </div>
+                        <div class="products__item-hover">
+                            <button class="btn products__hover-btn">Add to cart</button>
+                            <ul class="products__hover-list">
+                                <li class="products__hover-item">
+                                    <button class="hover__btn share__btn"><img src="./images/share-icon.svg" alt="">Share</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn compare__btn"><img src="./images/compare-icon.svg" alt="">Compare</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn like__btn"><img src="./images/heart-hover-icon.svg" alt="">Like</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="products__item">
+                        <div class="products__img-block">
+                            <img src="./images/products-img-8.png" alt="">
+                        </div>
+                        <div class="products__text-block">
+                            <a href="" class="products__item-title">Potty</a>
+                            <p class="products__item-description">Minimalist flower pot</p>
+                            <p class="products__item-price">Rp 500.000</p>
+                        </div>
+                        <div class="products__item-hover">
+                            <button class="btn products__hover-btn">Add to cart</button>
+                            <ul class="products__hover-list">
+                                <li class="products__hover-item">
+                                    <button class="hover__btn share__btn"><img src="./images/share-icon.svg" alt="">Share</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn compare__btn"><img src="./images/compare-icon.svg" alt="">Compare</button>
+                                </li>
+                                <li class="products__hover-item">
+                                    <button class="hover__btn like__btn"><img src="./images/heart-hover-icon.svg" alt="">Like</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                     </ul>
-                    <button class="btn products__btn">Show More</button>
-                </div>
+                    <div class="shop-products__buttons-block">
+                        <button class="shop-products__btn shop-products__btn_active">1</button>
+                        <button class="shop-products__btn">2</button>
+                        <button class="shop-products__btn">3</button>
+                        <button class="shop-products__btn shop-products__btn-next">Next</button>
+                    </div>
+                </div>     
             </div>
         </section>
-        <section class="examples">
+        <section class="benefits">
             <div class="container">
-                <div class="examples__content">
-                    <div class="examples__text-block">
-                        <h2 class="title section__title examples__title">50+ Beautiful rooms inspiration</h2>
-                        <p class="text examples__text">Our designer already made a lot of beautiful prototipe of rooms that inspire you</p>
-                        <button class="btn examples__btn">Explore More</button>
-                    </div>
-                    <div class="swiper examples__swiper-block">
-                        <div class="swiper-wrapper examples__list">
-                            <div class="swiper-slide examples__item">
-                                <div class="examples__img-block">
-                                    <img src="./images/examples-img-1.png" alt="">
-                                </div>
+                <div class="benefits__content">
+                    <ul class="benefits__list">
+                        <li class="benefits__item">
+                            <div class="benefits__img-block">
+                                <img src="./images/shop/benefits-trophy-icon .svg" alt="">
                             </div>
-                            <div class="swiper-slide examples__item">
-                                <div class="examples__img-block">
-                                    <img src="./images/examples-img-2.png" alt="">
-                                </div>
+                            <div class="benefits__text-block">
+                                <h3 class="benefits__item-title">High Quality</h3>
+                                <p class="benefits__item-text">crafted from top materials</p>
                             </div>
-                            <div class="swiper-slide examples__item">
-                                <div class="examples__img-block">
-                                    <img src="./images/examples-img-3.png" alt="">
-                                </div>
+                        </li>
+                        <li class="benefits__item">
+                            <div class="benefits__img-block">
+                                <img src="./images/shop/benefits-guarantee-icon.svg" alt="">
                             </div>
-                            ...
-                        </div>
-                        <div class="swiper-pagination examples__pagination"></div>
-                        <div class="swiper-button-prev examples__button-prev"></div>
-                        <div class="swiper-button-next examples__button-next"></div>
-                    </div>
+                            <div class="benefits__text-block">
+                                <h3 class="benefits__item-title">Warranty Protection</h3>
+                                <p class="benefits__item-text">Over 2 years</p>
+                            </div>
+                        </li>
+                        <li class="benefits__item">
+                            <div class="benefits__img-block">
+                                <img src="./images/shop/benefits-shipping-icon.svg" alt="">
+                            </div>
+                            <div class="benefits__text-block">
+                                <h3 class="benefits__item-title">Free Shipping</h3>
+                                <p class="benefits__item-text">Order over 150 $</p>
+                            </div>
+                        </li>
+                        <li class="benefits__item">
+                            <div class="benefits__img-block">
+                                <img src="./images/shop/benefits-support-icon.svg" alt="">
+                            </div>
+                            <div class="benefits__text-block">
+                                <h3 class="benefits__item-title">24 / 7 Support</h3>
+                                <p class="benefits__item-text">Dedicated support</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
