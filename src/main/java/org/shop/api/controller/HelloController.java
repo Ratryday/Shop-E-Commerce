@@ -1,6 +1,5 @@
 package org.shop.api.controller;
 
-import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +12,6 @@ public class HelloController {
 
     @GetMapping("/")
     public String index() {
-        log.info("Get In");
         return "index";
     }
 
