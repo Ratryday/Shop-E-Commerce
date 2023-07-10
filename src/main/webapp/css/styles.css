@@ -240,7 +240,7 @@ body {
     line-height: 1.2;
     color: var(--second-title-color-text);
     text-align: center;
-    margin: 50px 0 32px;
+    margin-top: 50px;
 }
 
 .products__list {

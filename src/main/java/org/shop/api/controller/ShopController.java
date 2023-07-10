@@ -51,4 +51,12 @@ public class ShopController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @GetMapping("/add")
+    public ResponseEntity<?> addDummy() {
+        List<ItemsItem> itemsItemList = itemsItemRepository.findAll();
+        itemsItemList.forEach(itemsItem -> itemsItem.setId(null));
+        itemsItemRepository.saveAll(itemsItemList);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }
