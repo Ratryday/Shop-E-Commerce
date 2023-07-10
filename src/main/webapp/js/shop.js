@@ -1,7 +1,9 @@
+const shopListEndpoint = "/shop/list/"
+
 document.addEventListener("DOMContentLoaded", getHomeItemList)
 
 async function getHomeItemList() {
-    let response = await fetch('/shop/list/?' + new URLSearchParams({
+    let response = await fetch(shopListEndpoint + "?" + new URLSearchParams({
         page: "1",
         size: "8"
     }
@@ -16,11 +18,11 @@ async function getHomeItemList() {
 
 async function mapItemsToFrames(json) {
     let productsContent = document.querySelector(".products__content");
-    let productsTitle = document.querySelector(".products__title")
+    let productsBtn = document.querySelector(".products__btn");
     let productsList = document.createElement("ul");
     productsList.classList.add("products__list");
     let productsItems = json['data'];
-    productsTitle.after(productsList);
+    productsBtn.before(productsList);
     for(let i = 0; i < productsItems.length; i++) {
         let productsItem = document.createElement("li");
         let productsImgBlock = document.createElement("div");
@@ -44,7 +46,6 @@ async function mapItemsToFrames(json) {
         productsItemDescription.textContent = productsItems[i].description;
         productsItemPrice.textContent = productsItems[i].price;
 
-
         productsList.append(productsItem);
         productsItem.append(productsImgBlock);
         productsImgBlock.append(img);
@@ -65,6 +66,26 @@ async function mapItemsToFrames(json) {
             alert("Error: " + responseHover.status);
         }
     }
-
+}
+document.addEventListener("DOMContentLoaded", addListenerToShowMoreBtn)
+function addListenerToShowMoreBtn() {
+    let productsBtn = document.querySelector(".products__btn");
+    console.log(productsBtn);
+    productsBtn.addEventListener("click", getProducts);
 }
 
+let showMoreButtonCount = 0;
+
+async function getProducts() {
+    showMoreButtonCount++;
+    let response = await fetch(shopListEndpoint + "?" + new URLSearchParams({
+        page: showMoreButtonCount,
+        size: "8"
+    }))
+    if (response.ok) {
+        let json = await response.json();
+        mapItemsToFrames(json);
+    } else {
+        alert("Error: " + response.status);
+    }
+}

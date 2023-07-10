@@ -240,7 +240,7 @@ body {
     line-height: 1.2;
     color: var(--second-title-color-text);
     text-align: center;
-    margin-top: 50px;
+    margin: 50px 0 63px;
 }
 
 .products__list {
@@ -636,9 +636,9 @@ body {
     max-width: 188px;
     width: 100%;
 }
-.products__list {
+/* .products__list {
     padding-top: 63px;
-}
+} */
 .shop-products__buttons-block {
     display: flex;
     justify-content: center;

@@ -18,6 +18,7 @@ import org.shop.api.dto.ItemDTO;
 
 import lombok.extern.log4j.Log4j2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
@@ -54,8 +55,17 @@ public class ShopController {
     @GetMapping("/add")
     public ResponseEntity<?> addDummy() {
         List<ItemsItem> itemsItemList = itemsItemRepository.findAll();
-        itemsItemList.forEach(itemsItem -> itemsItem.setId(null));
-        itemsItemRepository.saveAll(itemsItemList);
+        List<ItemsItem> newItems = new ArrayList<>();
+        itemsItemList.forEach(itemsItem -> {
+            ItemsItem newItem = new ItemsItem();
+            newItem.setImageUrl(itemsItem.getImageUrl());
+            newItem.setName(itemsItem.getName());
+            newItem.setPrice(itemsItem.getPrice());
+            newItem.setDescription(itemsItem.getDescription());
+            newItem.setCurrencyEnum(itemsItem.getCurrencyEnum());
+            newItems.add(newItem);
+        });
+        itemsItemRepository.saveAll(newItems);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
