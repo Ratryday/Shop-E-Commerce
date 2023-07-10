@@ -8,7 +8,7 @@
     </parent>
     <groupId>org.example</groupId>
     <artifactId>Shop-E-Commerce</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>Shop-E-Commerce Maven Webapp</name>
     <url>http://maven.apache.org</url>
@@ -51,6 +51,17 @@
                     <source>16</source>
                     <target>16</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <mainClass>src.main.java.org.shop.api.Application</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
