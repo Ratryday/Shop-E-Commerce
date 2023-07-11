@@ -571,6 +571,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 100px;
+    margin-bottom: 63px;
 }
 .filter-show__block {
     display: flex;
@@ -653,7 +654,8 @@ body {
     font-size: var(--large-text);
     font-weight: 400;
 }
-.shop-products__btn-next {
+.shop-products__btn-next,
+.shop-products__btn-prev {
     width: 98px;
 }
 
