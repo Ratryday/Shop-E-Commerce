@@ -645,7 +645,9 @@ body {
     justify-content: center;
     margin: 30px -19px 85px;
 }
-.shop-products__btn {
+.shop-products__btn,
+.shop-products__btn-next,
+.shop-products__btn-prev {
     margin: 0 19px;
     width: 60px;
     height: 60px;
@@ -656,14 +658,16 @@ body {
 }
 .shop-products__btn-next,
 .shop-products__btn-prev {
-
     width: 98px;
-
 }
 
 .shop-products__btn_active,
 .shop-products__btn:hover,
-.shop-products__btn:focus {
+.shop-products__btn:focus,
+.shop-products__btn-next:hover,
+.shop-products__btn-prev:hover,
+.shop-products__btn-next:focus,
+.shop-products__btn-prev:focus {
     background-color: var(--accent-color);
     color: var(--first-background-color);
 }

@@ -1,9 +1,11 @@
 const shopListEndpoint = "/shop/list/"
-let page = 4;
+let currentPage = 1;
 let size = 16;
-document.addEventListener("DOMContentLoaded", getHomeItemList(page))
+document.addEventListener("DOMContentLoaded", getHomeItemList(currentPage))
 
 async function getHomeItemList(page) {
+    currentPage = page;
+    console.log("page1 - " + currentPage);
     let response = await fetch(shopListEndpoint + "?" + new URLSearchParams({
         page: page,
         size: size
@@ -18,6 +20,7 @@ async function getHomeItemList(page) {
 }
 
 async function setItemsToFrames(json) {
+    console.log("page - " + currentPage);
     let shopProductsButtonsBlock = document.querySelector(".shop-products__buttons-block")
 
     let productsList = document.createElement("ul");
@@ -69,9 +72,10 @@ async function setItemsToFrames(json) {
             alert("Error: " + responseHover.status);
         }
     }
+    shopProductsButtonsBlock.innerHTML = "";
+    getShopProductsButtonsBlock(currentPage);
+    
 }
-
-document.addEventListener("DOMContentLoaded", getShopProductsButtonsBlock(page));
 
 async function getShopProductsButtonsBlock(page) {
     let response = await fetch(shopListEndpoint + "?" + new URLSearchParams({
@@ -86,47 +90,33 @@ async function getShopProductsButtonsBlock(page) {
     }
 }
 
-
-
 async function setButtonsToFrame(json) {
     let count = json['count'];
     let countPages = count / size;
     let shopProductsButtonsBlock = document.querySelector(".shop-products__buttons-block");
-    let shopProductsBtn;
     for(let i = 1; i <= countPages; i++) {
         let shopProductsBtn = document.createElement("button");
         shopProductsBtn.classList.add("shop-products__btn");
         shopProductsBtn.setAttribute("id", i);
         shopProductsBtn.textContent = i;
         shopProductsButtonsBlock.append(shopProductsBtn);
-
-        let shopProductsBtnId = shopProductsBtn.id;
         shopProductsBtn.addEventListener("click", () => {
             let productsList = document.querySelector(".products__list");
             productsList.outerHTML = "";
-            getHomeItemList(shopProductsBtnId);
-            console.log(shopProductsBtnId)
-        })
-
+            getHomeItemList(shopProductsBtn.id);
+        });
     }
-
-    if(page !== 1) {
-        let shopProductsBtnPrev = document.createElement("button");
-        shopProductsBtnPrev.classList.add("shop-products__btn", "shop-products__btn-prev");
+    console.log(currentPage);
+    if (currentPage != 1) {
+    let shopProductsBtnPrev = document.createElement("button");
+        shopProductsBtnPrev.classList.add(".shop-products__btn", "shop-products__btn-prev");
         shopProductsBtnPrev.textContent = "Prev";
         shopProductsButtonsBlock.prepend(shopProductsBtnPrev);
-    } 
-    if(page !== countPages) {
+    }
+    if (currentPage != countPages) {
         let shopProductsBtnNext = document.createElement("button");
-        shopProductsBtnNext.classList.add("shop-products__btn", "shop-products__btn-next");
+        shopProductsBtnNext.classList.add(".shop-products__btn", "shop-products__btn-next");
         shopProductsBtnNext.textContent = "Next";
         shopProductsButtonsBlock.append(shopProductsBtnNext);
     }
-
-    // let shopProductsButtons = document.querySelectorAll(".shop-products__btn")
-    // let shopProductsBtnPrev = document.querySelector(".shop-products__btn-prev");
-    // let shopProductsBtnNext = document.querySelector(".shop-products__btn-next");
-    // shopProductsBtnPrev.addEventListener("click", () => {
-
-    // }) 
 }
