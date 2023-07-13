@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", getHomeItemList(currentPage))
 
 async function getHomeItemList(page) {
     currentPage = page;
-    console.log("page1 - " + currentPage);
+    console.log("Page - " + currentPage);
     let response = await fetch(shopListEndpoint + "?" + new URLSearchParams({
         page: page,
         size: size
@@ -20,10 +20,13 @@ async function getHomeItemList(page) {
 }
 
 async function setItemsToFrames(json) {
-    console.log("page - " + currentPage);
+    let productsList = document.querySelector(".products__list");
+    if (productsList != null) {
+        productsList.outerHTML = "";
+    }
     let shopProductsButtonsBlock = document.querySelector(".shop-products__buttons-block")
 
-    let productsList = document.createElement("ul");
+    productsList = document.createElement("ul");
     productsList.classList.add("products__list");
     let productsItems = json['data'];
 
@@ -101,22 +104,22 @@ async function setButtonsToFrame(json) {
         shopProductsBtn.textContent = i;
         shopProductsButtonsBlock.append(shopProductsBtn);
         shopProductsBtn.addEventListener("click", () => {
-            let productsList = document.querySelector(".products__list");
-            productsList.outerHTML = "";
             getHomeItemList(shopProductsBtn.id);
         });
     }
-    console.log(currentPage);
     if (currentPage != 1) {
     let shopProductsBtnPrev = document.createElement("button");
         shopProductsBtnPrev.classList.add(".shop-products__btn", "shop-products__btn-prev");
         shopProductsBtnPrev.textContent = "Prev";
         shopProductsButtonsBlock.prepend(shopProductsBtnPrev);
+        
+        shopProductsBtnPrev.addEventListener("click", () => {getHomeItemList(--currentPage)});
     }
     if (currentPage != countPages) {
         let shopProductsBtnNext = document.createElement("button");
         shopProductsBtnNext.classList.add(".shop-products__btn", "shop-products__btn-next");
         shopProductsBtnNext.textContent = "Next";
         shopProductsButtonsBlock.append(shopProductsBtnNext);
+        shopProductsBtnNext.addEventListener("click", () => {getHomeItemList(++currentPage)});
     }
 }
