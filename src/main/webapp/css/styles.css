@@ -656,7 +656,9 @@ body {
 }
 .shop-products__btn-next,
 .shop-products__btn-prev {
+
     width: 98px;
+
 }
 
 .shop-products__btn_active,

@@ -1,11 +1,12 @@
 const shopListEndpoint = "/shop/list/"
-
+let page = 1;
+let size = 8;
 document.addEventListener("DOMContentLoaded", getHomeItemList)
 
 async function getHomeItemList() {
     let response = await fetch(shopListEndpoint + "?" + new URLSearchParams({
-        page: "1",
-        size: "8"
+        page: page,
+        size: size
     }
     ));
     if (response.ok) {
@@ -70,22 +71,10 @@ async function mapItemsToFrames(json) {
 document.addEventListener("DOMContentLoaded", addListenerToShowMoreBtn)
 function addListenerToShowMoreBtn() {
     let productsBtn = document.querySelector(".products__btn");
-    console.log(productsBtn);
-    productsBtn.addEventListener("click", getProducts);
+    productsBtn.addEventListener("click", redirectToShopPage);
+}
+const urlShopPage = "shop";
+function redirectToShopPage() {
+    window.location.href = urlShopPage;
 }
 
-let showMoreButtonCount = 0;
-
-async function getProducts() {
-    showMoreButtonCount++;
-    let response = await fetch(shopListEndpoint + "?" + new URLSearchParams({
-        page: showMoreButtonCount,
-        size: "8"
-    }))
-    if (response.ok) {
-        let json = await response.json();
-        mapItemsToFrames(json);
-    } else {
-        alert("Error: " + response.status);
-    }
-}

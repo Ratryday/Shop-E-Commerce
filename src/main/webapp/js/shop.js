@@ -86,11 +86,13 @@ async function getShopProductsButtonsBlock(page) {
     }
 }
 
+
+
 async function setButtonsToFrame(json) {
     let count = json['count'];
     let countPages = count / size;
     let shopProductsButtonsBlock = document.querySelector(".shop-products__buttons-block");
-    console.log(shopProductsButtonsBlock);
+    let shopProductsBtn;
     for(let i = 1; i <= countPages; i++) {
         let shopProductsBtn = document.createElement("button");
         shopProductsBtn.classList.add("shop-products__btn");
@@ -99,15 +101,11 @@ async function setButtonsToFrame(json) {
         shopProductsButtonsBlock.append(shopProductsBtn);
 
         let shopProductsBtnId = shopProductsBtn.id;
-        
         shopProductsBtn.addEventListener("click", () => {
-
-            console.log("click" + shopProductsBtnId);
             let productsList = document.querySelector(".products__list");
-            console.log(productsList);
             productsList.outerHTML = "";
-            shopProductsBtn.classList.toggle("shop-products__btn_active");
             getHomeItemList(shopProductsBtnId);
+            console.log(shopProductsBtnId)
         })
 
     }
@@ -125,4 +123,10 @@ async function setButtonsToFrame(json) {
         shopProductsButtonsBlock.append(shopProductsBtnNext);
     }
 
+    // let shopProductsButtons = document.querySelectorAll(".shop-products__btn")
+    // let shopProductsBtnPrev = document.querySelector(".shop-products__btn-prev");
+    // let shopProductsBtnNext = document.querySelector(".shop-products__btn-next");
+    // shopProductsBtnPrev.addEventListener("click", () => {
+
+    // }) 
 }
