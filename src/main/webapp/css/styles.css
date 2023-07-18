@@ -588,7 +588,8 @@ body {
 }
 .filter__text,
 .show__form label,
-.show__form input {
+.show__form input,
+.sort__option {
     font-size: var(--large-text);
     font-weight: 400;
 }
@@ -617,7 +618,8 @@ body {
     display: flex;
     align-items: center;
 }
-.show__form input {
+.show__form input,
+.sort__option {
    color: var(--footer-color-text);
    border: none;
    height: 54px;
@@ -632,10 +634,20 @@ body {
 
 
 }
-.sort__input {
+.sort__select {
     padding: 12px 30px;
     max-width: 188px;
     width: 100%;
+    color: var(--footer-color-text);
+    border: none;
+    height: 54px;
+    margin-left: 17px;
+    font-size: var(--large-text);
+    font-weight: 400;
+    background-color: var(--first-background-color);
+}
+.sort__option {
+
 }
 /* .products__list {
     padding-top: 63px;
