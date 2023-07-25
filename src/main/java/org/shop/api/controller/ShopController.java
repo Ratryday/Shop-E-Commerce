@@ -18,6 +18,7 @@ import org.shop.api.dto.ItemDTO;
 
 import lombok.extern.log4j.Log4j2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
@@ -49,6 +50,23 @@ public class ShopController {
         response.setData(itemsItemList.stream().map(Utils::convertItemsItemToItemDTO).toList());
         response.setCount(itemsItemList.getTotalElements());
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/add")
+    public ResponseEntity<?> addDummy() {
+        List<ItemsItem> itemsItemList = itemsItemRepository.findAll();
+        List<ItemsItem> newItems = new ArrayList<>();
+        itemsItemList.forEach(itemsItem -> {
+            ItemsItem newItem = new ItemsItem();
+            newItem.setImageUrl(itemsItem.getImageUrl());
+            newItem.setName(itemsItem.getName());
+            newItem.setPrice(itemsItem.getPrice());
+            newItem.setDescription(itemsItem.getDescription());
+            newItem.setCurrencyEnum(itemsItem.getCurrencyEnum());
+            newItems.add(newItem);
+        });
+        itemsItemRepository.saveAll(newItems);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
