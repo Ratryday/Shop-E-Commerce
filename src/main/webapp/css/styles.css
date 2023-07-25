@@ -588,7 +588,6 @@ body {
 }
 .filter__text,
 .show__form label,
-.show__form input,
 .sort__option {
     font-size: var(--large-text);
     font-weight: 400;
@@ -618,25 +617,17 @@ body {
     display: flex;
     align-items: center;
 }
-.show__form input,
+.show__option,
 .sort__option {
    color: var(--footer-color-text);
    border: none;
    height: 54px;
    margin-left: 17px;
 }
-.show__input {
-
-    padding: 12px 18px;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-
-
-}
+.show__select,
 .sort__select {
-    padding: 12px 30px;
-    max-width: 188px;
+    padding: 12px;
+    max-width: 70px;
     width: 100%;
     color: var(--footer-color-text);
     border: none;
@@ -646,12 +637,14 @@ body {
     font-weight: 400;
     background-color: var(--first-background-color);
 }
-.sort__option {
-
+.sort__select {
+    max-width: 188px;
+    padding: 12px 30px;
 }
-/* .products__list {
-    padding-top: 63px;
-} */
+.sort__label {
+    margin-left: 17px;
+}
+
 .shop-products__buttons-block {
     display: flex;
     justify-content: center;
