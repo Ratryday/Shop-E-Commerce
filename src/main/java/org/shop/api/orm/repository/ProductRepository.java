@@ -8,7 +8,7 @@ import org.shop.api.orm.entity.ItemsItem;
 import java.util.List;
 
 @Repository
-public interface ItemsItemRepository extends PagingAndSortingRepository<ItemsItem, Integer> {
+public interface ProductRepository extends PagingAndSortingRepository<ItemsItem, Integer> {
     List<ItemsItem> findAll();
 
 }

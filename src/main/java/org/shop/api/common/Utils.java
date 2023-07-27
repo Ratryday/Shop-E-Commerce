@@ -1,17 +1,20 @@
 package org.shop.api.common;
 
 import org.shop.api.orm.entity.ItemsItem;
-import org.shop.api.dto.ItemDTO;
+import org.shop.api.dto.ProductDTO;
+
+import static java.util.Objects.isNull;
 
 public class Utils {
 
-    public static ItemDTO convertItemsItemToItemDTO(ItemsItem itemsItem) {
-        ItemDTO itemDTO = new ItemDTO();
-        itemDTO.setName(itemsItem.getName());
-        itemDTO.setImageUrl(itemsItem.getImageUrl());
-        itemDTO.setDescription(itemsItem.getDescription());
-        itemDTO.setPrice(itemsItem.getPrice() + " " + itemsItem.getCurrencyEnum().getCurrency());
-        return itemDTO;
+    public static ProductDTO convertItemsItemToItemDTO(ItemsItem itemsItem) {
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setName(itemsItem.getName());
+        productDTO.setImageUrl(itemsItem.getImageUrl());
+        productDTO.setDescription(itemsItem.getDescription());
+        productDTO.setPrice(itemsItem.getPrice() + " " + (isNull(itemsItem.getCurrencyEnum()) ?
+                null : itemsItem.getCurrencyEnum().getCurrency()));
+        return productDTO;
     }
 
 }
