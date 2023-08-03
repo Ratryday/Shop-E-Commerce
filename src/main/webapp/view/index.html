@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="../js/home.js"></script>
 </head>
 <body>
@@ -51,6 +50,61 @@
                         </ul>
                     </ul>
                 </nav>
+            </div>
+        </div>
+        <div class="header__cart">
+            <div class="cart__header">
+                <h2 class="cart__title">Shopping Cart</h2>
+                <button class="cart__close">
+                    <img src="../images/cart/cart-close-image.svg" alt="">
+                </button>
+            </div>
+            <div class="cart__body">
+                <ul class="cart__products-list">
+                    <li class="cart__products-item">
+                        <div class="cart__item-img">
+                            <img src="../images/cart/cart-products-image-1.png" alt="">
+                        </div>
+                        <div class="cart__item-text">
+                            <h3 class="cart__item-title">Asgaard sofa</h3>
+                            <div class="cart__item-price-block">
+                                <p class="cart__item-count">1</p>
+                                <p class="cart__item-mul">X</p>
+                                <p class="cart__item-price">Rs. 250,000.00</p>
+                            </div>
+                        </div>
+                        <button class="cart__item-close">
+                            <img src="../images/cart/item-close-image.svg" alt="">
+                        </button>
+                    </li>
+                    <li class="cart__products-item">
+                        <div class="cart__item-img">
+                            <img src="../images/cart/cart-products-image-2.png" alt="">
+                        </div>
+                        <div class="cart__item-text">
+                            <h3 class="cart__item-title">Casaliving Wood</h3>
+                            <div class="cart__item-price-block">
+                                <p class="cart__item-count">1</p>
+                                <p class="cart__item-mul">X</p>
+                                <p class="cart__item-price">Rs. 270,000.00</p>
+                            </div>
+                        </div>
+                        <button class="cart__item-close">
+                            <img src="../images/cart/item-close-image.svg" alt="">
+                        </button>
+                    </li>
+                </ul>
+                <div class="cart__total-price">
+                    <h3 class="total-price__title">Subtotal</h3>
+                    <p class="total-price__sum">Rs. 520,000.00</p>
+                </div>
+            </div>
+            <div class="cart__footer">
+                <div class="cart__buttons">
+                    <button class="btn cart__btn btn-cart">Cart</button>
+                    <button class="btn cart__btn btn-checkout">Checkout</button>
+                    <button class="btn cart__btn btn-comparison">Comparison</button>
+                </div>
             </div>
         </div>
     </header>
@@ -103,40 +157,7 @@
                 </div>
             </div>
         </section>
-        <section class="examples">
-            <div class="container">
-                <div class="examples__content">
-                    <div class="examples__text-block">
-                        <h2 class="title section__title examples__title">50+ Beautiful rooms inspiration</h2>
-                        <p class="text examples__text">Our designer already made a lot of beautiful prototipe of rooms that inspire you</p>
-                        <button class="btn examples__btn">Explore More</button>
-                    </div>
-                    <div class="swiper examples__swiper-block">
-                        <div class="swiper-wrapper examples__list">
-                            <div class="swiper-slide examples__item">
-                                <div class="examples__img-block">
-                                    <img src="./images/examples-img-1.png" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide examples__item">
-                                <div class="examples__img-block">
-                                    <img src="./images/examples-img-2.png" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide examples__item">
-                                <div class="examples__img-block">
-                                    <img src="./images/examples-img-3.png" alt="">
-                                </div>
-                            </div>
-                            ...
-                        </div>
-                        <div class="swiper-pagination examples__pagination"></div>
-                        <div class="swiper-button-prev examples__button-prev"></div>
-                        <div class="swiper-button-next examples__button-next"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
     </main>
     <footer class="footer">
         <div class="container">
@@ -175,7 +196,7 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="../js/script.js"></script>
+
+    <script src="../js/cart.js"></script>
 </body>
 </html>

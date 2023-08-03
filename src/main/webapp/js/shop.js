@@ -1,4 +1,4 @@
-const shopListEndpoint = "/shop/list/"
+const shopListEndpoint = "/shop/list/";
 let currentPage = 1;
 let size = 16;
 
@@ -21,23 +21,14 @@ async function getHomeItemList(page) {
         localStorage.setItem('currentPage', currentPage);
         setItemsToFrames(json);
         getShowText(currentPage, size, count);
-    //     let shopProductsButtons = document.querySelectorAll(".shop-products__btn")
-    //     console.log(shopProductsButtons)
-    //     shopProductsButtons.forEach(function (item) {
-    //     if (item.id === currentPage) {
-    //         console.log('id')
-    //         item.style.backgroundColor = "greenyellow";
-    //     }
-       
-        
-    // });
+
+        console.log(localStorage.getItem('currentPage'));
         
     } else {
+        console.log('error fetch')
         alert("Error: " + response.status);
     }
 }
-// document.addEventListener("load", getColorCurrentBtn(localStorage.getItem('currentPage')));
-
 
 async function setItemsToFrames(json) {
     let productsList = document.querySelector(".products__list");
@@ -154,8 +145,6 @@ async function setButtonsToFrame(json) {
         shopProductsButtonsBlock.append(shopProductsBtnNext);
         shopProductsBtnNext.addEventListener("click", () => {getHomeItemList(++currentPage)});
     }
-    
-    //console.log(shopProductsButtons);
 }
 
 document.addEventListener("DOMContentLoaded", sortProductsList);
@@ -196,17 +185,3 @@ async function getShowText(currentPage, size, count) {
     let showText = document.querySelector(".show__text");
     showText.innerHTML = `Showing ${currentPage * size - size + 1}–${size * currentPage} of ${count} results`;
 }
-// async function getColorCurrentBtn(currentPage) {
-//     console.log('hello')
-//     let btn = document.querySelector(".btn")
-//     // let shopProductsButtons = document.querySelectorAll(".shop-products__btn")
-//         console.log(btn)
-//         shopProductsButtons.forEach(function (item) {
-//         if (item.id === currentPage) {
-//             console.log('id')
-//             item.style.backgroundColor = "greenyellow";
-//         }
-       
-        
-//     });
-// }
