@@ -10,11 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 
-import org.shop.api.orm.repository.ItemsItemRepository;
+import org.shop.api.orm.repository.ProductRepository;
 import org.shop.api.response.PageableResponse;
 import org.shop.api.orm.entity.ItemsItem;
 import org.shop.api.common.Utils;
-import org.shop.api.dto.ItemDTO;
+import org.shop.api.dto.ProductDTO;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -26,11 +26,11 @@ import java.util.List;
 @RequestMapping("/shop")
 public class ShopController {
 
-    private final ItemsItemRepository itemsItemRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public ShopController(ItemsItemRepository itemsItemRepository) {
-        this.itemsItemRepository = itemsItemRepository;
+    public ShopController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     @GetMapping
@@ -41,8 +41,8 @@ public class ShopController {
     @GetMapping("/list")
     public ResponseEntity<?> getItems(@RequestParam(name = "size", defaultValue = "16") int size,
                                       @RequestParam(name = "page", defaultValue = "1") int page) {
-        Page<ItemsItem> itemsItemList = itemsItemRepository.findAll(PageRequest.of(page - 1, size));
-        PageableResponse<List<ItemDTO>> response = new PageableResponse<>();
+        Page<ItemsItem> itemsItemList = productRepository.findAll(PageRequest.of(page - 1, size));
+        PageableResponse<List<ProductDTO>> response = new PageableResponse<>();
         if (itemsItemList.isEmpty()) {
             response.errorResponse("Items not found");
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
@@ -54,7 +54,7 @@ public class ShopController {
 
     @GetMapping("/add")
     public ResponseEntity<?> addDummy() {
-        List<ItemsItem> itemsItemList = itemsItemRepository.findAll();
+        List<ItemsItem> itemsItemList = productRepository.findAll();
         List<ItemsItem> newItems = new ArrayList<>();
         itemsItemList.forEach(itemsItem -> {
             ItemsItem newItem = new ItemsItem();
@@ -65,7 +65,7 @@ public class ShopController {
             newItem.setCurrencyEnum(itemsItem.getCurrencyEnum());
             newItems.add(newItem);
         });
-        itemsItemRepository.saveAll(newItems);
+        productRepository.saveAll(newItems);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
