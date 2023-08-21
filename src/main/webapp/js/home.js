@@ -1,7 +1,9 @@
+'use strict'
 const shopListEndpoint = "/shop/list/"
 let page = 1;
 let size = 8;
-document.addEventListener("DOMContentLoaded", getHomeItemList)
+let json;
+document.addEventListener("DOMContentLoaded", getHomeItemList);
 
 async function getHomeItemList() {
     let response = await fetch(shopListEndpoint + "?" + new URLSearchParams({
@@ -10,8 +12,11 @@ async function getHomeItemList() {
     }
     ));
     if (response.ok) {
-        let json = await response.json();
+        json = await response.json();
         mapItemsToFrames(json);
+
+        console.log(json)
+
     } else {
         alert("Error: " + response.status);
     }
@@ -63,6 +68,11 @@ async function mapItemsToFrames(json) {
             productsItemHover.innerHTML = productsItemHoverText;
             productsItem.append(productsItemHover);
 
+            let btnAddToCart = productsItem.querySelector(".products__hover-btn");
+            btnAddToCart.addEventListener("click", () => {
+                addToCartFunc(productsItems[i]);
+            })
+            //console.log(btnAddToCart);
         } else {
             alert("Error: " + responseHover.status);
         }
@@ -78,3 +88,7 @@ function redirectToShopPage() {
     window.location.href = urlShopPage;
 }
 
+
+function addToCartFunc(aae) {
+    console.log('hi ' + aae);
+}

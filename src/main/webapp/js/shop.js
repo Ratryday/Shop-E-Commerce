@@ -1,3 +1,4 @@
+'use strict'
 const shopListEndpoint = "/shop/list/";
 let currentPage = 1;
 let size = 16;
@@ -21,8 +22,6 @@ async function getHomeItemList(page) {
         localStorage.setItem('currentPage', currentPage);
         setItemsToFrames(json);
         getShowText(currentPage, size, count);
-
-        console.log(localStorage.getItem('currentPage'));
         
     } else {
         console.log('error fetch')

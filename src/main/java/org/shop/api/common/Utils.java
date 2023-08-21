@@ -9,6 +9,7 @@ public class Utils {
 
     public static ProductDTO convertItemsItemToItemDTO(ItemsItem itemsItem) {
         ProductDTO productDTO = new ProductDTO();
+        productDTO.setId(itemsItem.getId());
         productDTO.setName(itemsItem.getName());
         productDTO.setImageUrl(itemsItem.getImageUrl());
         productDTO.setDescription(itemsItem.getDescription());

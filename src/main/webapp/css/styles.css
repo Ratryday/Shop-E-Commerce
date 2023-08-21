@@ -937,10 +937,13 @@ body {
 }
 
 /* CART */
+.background-body {
+    filter: blur(5px);
+}
 
-.header__cart {
+.cart {
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     top: 0;
     right: 0;
@@ -948,6 +951,7 @@ body {
     color: var(--header-footer-color-text);
     background-color: var(--first-background-color);
     font-weight: 400;
+    box-shadow: #000000;
 }
 .cart__header {
     display: flex;
